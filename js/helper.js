@@ -2,7 +2,7 @@ var myPeerConn;
 var facingMode = "user";
 var mediaConstraints = { audio: true, video: { facingMode } };
 var src;
-var socket = io();
+var socket = io("https://videocall21.herokuapp.com");
 var myUsername
 var targetUsername
 var remote = document.querySelector("#remote");
