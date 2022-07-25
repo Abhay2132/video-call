@@ -20,13 +20,13 @@ function getUsers () {
 	qs("#login-menu").style.display = "none";
 	qs("#users-list").style.display = "block";
 	qs(".users-dialog > h3").textContent = "Online Users ! ";
-	fetch("/getUsers")
+	fetch("http://videocall21.herokuapp.com/getUsers")
 	.then(data => data.json())
 	.then(setUsers);
 }
 
 function setUsers ( users ) {
-	if ( users.length < 2 ) return qs("#users-list").innerHTML = '<div class="message"> Nobody is Online ! </div>'
+	if ( ! users.length || users.length < 2 ) return qs("#users-list").innerHTML = '<div class="message"> Nobody is Online ! </div>'
 	qs("#users-list").innerHTML = ''
 	users.forEach( user => {
 		if ( user == myUsername ) return;
