@@ -20,7 +20,7 @@ function getUsers () {
 	qs("#login-menu").style.display = "none";
 	qs("#users-list").style.display = "block";
 	qs(".users-dialog > h3").textContent = "Online Users ! ";
-	fetch("http://videocall21.herokuapp.com/getUsers")
+	fetch("https://videocall21.herokuapp.com/getUsers")
 	.then(data => data.json())
 	.then(setUsers)
 	.catch(console.log)
