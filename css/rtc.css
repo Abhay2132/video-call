@@ -1,0 +1,84 @@
+body {
+	margin: 0;
+	font-family: sans-serif;
+}
+
+.vcc {
+	overflow: hidden;
+}
+
+.vcp {
+	background: #3da;
+	position: relative;
+}
+
+.vcp > video {
+	position: absolute;
+	bottom: 0;
+	right: 0;
+}
+
+.fs {
+	background: #000;
+	width: 100%;
+	height: 100%;
+	z-index: 1;
+}
+
+.sm {
+	background: #000;
+	height: 160px;
+	width: 120px;
+	z-index: 2;
+}
+
+.controls {
+	background: #fff;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+	box-sizing: border-box;
+	width: 100%;
+	padding: 0 30px;
+}
+
+.controls > div {
+	height: 40px;
+	width: 40px;
+	border-radius: 50%;
+	position: relative;
+	top: 5px;
+	display: grid;
+	justify-content: center;
+	align-items: center;
+}
+
+.controls img {
+	height: 30px;
+	width: 30px;
+	user-select: none;
+}
+
+.controls > div:active {
+	background: #ddd;
+}
+
+.users {
+	background: #0054ae;
+	color: #eee;
+	display: grid;
+	justify-content: center;
+	align-items: center;
+	font-size: 25px;
+}
+
+.toggle-video > img {
+	--s : 25px;
+	height: var(--s);
+	width: var(--s);
+}
+
+.end-call > img {
+	height: 100%;
+	width: 100%;
+}

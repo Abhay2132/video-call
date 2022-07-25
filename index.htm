@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<head>
+		<title>Web RTC</title>
+		<link rel="stylesheet" href="css/rtc.css" />
+		<link rel="stylesheet" href="css/icons.css" />
+		<link rel="stylesheet" href="css/users.css" />
+	</head>
+
+	<body>
+		<div class="vcc">
+			<div class="users" onclick="setUsers()">WebRTC</div>
+			<div class="vcp">
+				<video id="remote" class="fs" onclick="revert(this);" autoplay playsinline></video>
+				<video id="local" class="sm" onclick="toggleSrc()" autoplay playsinline muted></video>
+			</div>
+			<div class="controls">
+				<div class="sc" onclick="setCamera(1)"><img src="icons/switch-camera.png" /></div>
+				<div class="mute" onclick="toggleMute()"><img src="icons/mute.png" /></div>
+				<div class="toggle-video" onclick="toggleVideo()"><img src="icons/no-video.png" /></div>
+				<div class="end-call" onclick="end_call()"><img src="icons/endcall.png" /></div>
+			</div>
+		</div>
+
+		<div class="fs-dialog-box">
+			<div class="fs-bg"></div>
+			<div class="users-dialog">
+				<h3>Enter Your Username</h3>
+				<form id="login-menu" onsubmit="return false;">
+					<input id="uid" placeholder="username" required/><br>
+					<button onclick="addUser()" >Login</button>
+				</form>
+				<div id="users-list"></div>
+			</div>
+		</div>
+	</body>
+	<script src="/socket.io/socket.io.js"></script>
+	<script src="js/helper.js"></script>
+	<script src="js/rtc.js"></script>
+	<script src="js/ui.js"></script>
+	<script src="js/users.js"></script>
+</html>
