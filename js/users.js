@@ -20,14 +20,13 @@ function getUsers () {
 	qs("#login-menu").style.display = "none";
 	qs("#users-list").style.display = "block";
 	qs(".users-dialog > h3").textContent = "Online Users ! ";
-	fetch("https://videocall21.herokuapp.com/getUsers")
+	fetch("/getUsers")
 	.then(data => data.json())
-	.then(setUsers)
-	.catch(console.log)
+	.then(setUsers);
 }
 
 function setUsers ( users ) {
-	if ( ! users.length || users.length < 2 ) return qs("#users-list").innerHTML = '<div class="message"> Nobody is Online ! </div>'
+	if ( ! users.length || users.length < 2  ) return qs("#users-list").innerHTML = '<div class="message"> Nobody is Online ! </div>'
 	qs("#users-list").innerHTML = ''
 	users.forEach( user => {
 		if ( user == myUsername ) return;
@@ -51,6 +50,8 @@ function callUser (button, user) {
 function end_call () {
 	socket.emit("end-call", {type : "end-call", target : targetUsername});
 	onCallEnd ();
+	muted && toggleMute(1);
+	!video && toggleVideo(1);
 }
 
 function onCallEnd () {

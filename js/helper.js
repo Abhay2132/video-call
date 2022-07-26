@@ -2,7 +2,7 @@ var myPeerConn;
 var facingMode = "user";
 var mediaConstraints = { audio: true, video: { facingMode } };
 var src;
-var socket = io("https://videocall21.herokuapp.com");
+var socket = io();
 var myUsername
 var targetUsername
 var remote = document.querySelector("#remote");
@@ -41,26 +41,27 @@ async function setCamera(f = false) {
 }
 
 var muted = false;
-function toggleMute() {
-	if (!myPeerConn) return;
+function toggleMute(f) {
+	if ( ! f && !myPeerConn) return;
 	muted = !muted;
 	let sndrs = myPeerConn.getSenders();
-	sndrs.forEach((s) => {
+	if ( ! f && myPeerConn) sndrs.forEach((s) => {
 		if (s.track.kind == "audio") s.track.enabled = !muted;
 		let info = {};
 		info[s.track.kind] = s.track.enabled;
 		console.log(info);
 	});
-	if (muted) qs(".mute").style.background = "#ddd";
-	else qs(".mute").style.background = "transparent";
+	//if (muted)
+	qs(".mute").style.background = muted ? "#ddd": "transparent";
+	//else qs(".mute").style.background = "transparent";
 }
 
 var video = true;
-function toggleVideo() {
-	if (!myPeerConn) return;
+function toggleVideo(f) {
+	if (!myPeerConn && !f) return;
 	let sndrs = myPeerConn.getSenders();
 	video = ! video;
-	sndrs.forEach((s) => {
+	if ( ! f && myPeerConn) sndrs.forEach((s) => {
 		if (s.track.kind == "video") s.track.enabled = video;
 		let info = {};
 		info[s.track.kind] = s.track.enabled;
