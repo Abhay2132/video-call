@@ -3,14 +3,13 @@ const RUNTIME = 'runtime';
 
 // A list of local resources we always want to be cached.
 const PRECACHE_URLS = [
-  'index.htm',
-  './', // Alias for index.html
-  'css/users.css',
-  'css/rtc.css',
-  'js/ui.js',
-  'js/helper.js',
-  'js/users.js',
-  'js/rtc.js',
+  'https://abhay2132.github.io/video-call/index.htm',
+  'https://abhay2132.github.io/video-call/css/users.css',
+  'https://abhay2132.github.io/video-call/css/rtc.css',
+  'https://abhay2132.github.io/video-call/js/ui.js',
+  'https://abhay2132.github.io/video-call/js/helper.js',
+  'https://abhay2132.github.io/video-call/js/users.js',
+  'https://abhay2132.github.io/video-call/js/rtc.js',
 ];
 
 // The install handler takes care of precaching the resources we always need.
