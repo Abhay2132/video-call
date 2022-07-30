@@ -10,6 +10,10 @@ const PRECACHE_URLS = [
   'https://abhay2132.github.io/video-call/js/helper.js',
   'https://abhay2132.github.io/video-call/js/users.js',
   'https://abhay2132.github.io/video-call/js/rtc.js',
+  'https://abhay2132.github.io/video-call/icons/endcall.png',
+  'https://abhay2132.github.io/video-call/icons/switch-camera.png',
+  'https://abhay2132.github.io/video-call/icons/mute.png',
+  'https://abhay2132.github.io/video-call/icons/no-video.png',
 ];
 
 // The install handler takes care of precaching the resources we always need.
