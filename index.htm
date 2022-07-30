@@ -35,9 +35,14 @@
 			</div>
 		</div>
 	</body>
-	<script src="https://videocall21.herokuapp.com/socket.io/socket.io.js"></script>
-	<script src="js/helper.js"></script>
-	<script src="js/rtc.js"></script>
-	<script src="js/ui.js"></script>
-	<script src="js/users.js"></script>
+	<script src="https://videocall21.herokuapp.com/socket.io/socket.io.js" defer ></script>
+	<script src="js/helper.js" defer ></script>
+	<script src="js/rtc.js" defer ></script>
+	<script src="js/ui.js" defer ></script>
+	<script src="js/users.js" defer ></script>
+	<script>
+		if ('serviceWorker' in navigator) {
+		  navigator.serviceWorker.register('js/sw.js');
+}
+	</script>
 </html>
